@@ -1,0 +1,56 @@
+{% extends 'beatstore/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Modifier mon profil</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="avatar">Photo de profil</label>
+                                    <input type="file" class="form-control-file" id="avatar" name="avatar">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Nom d'utilisateur</label>
+                                    <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="bio">Biographie</label>
+                                    <textarea class="form-control" id="bio" name="bio" rows="4">{{ user.profile.bio }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Site web</label>
+                                    <input type="url" class="form-control" id="website" name="website" value="{{ user.profile.website }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="social_links">Réseaux sociaux</label>
+                                    <input type="text" class="form-control mb-2" id="instagram" name="instagram" placeholder="Instagram" value="{{ user.profile.instagram }}">
+                                    <input type="text" class="form-control mb-2" id="twitter" name="twitter" placeholder="Twitter" value="{{ user.profile.twitter }}">
+                                    <input type="text" class="form-control" id="soundcloud" name="soundcloud" placeholder="Soundcloud" value="{{ user.profile.soundcloud }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

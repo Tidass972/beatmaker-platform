@@ -1,0 +1,76 @@
+{% extends 'beatstore/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Uploader un beat</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="title">Titre</label>
+                                    <input type="text" class="form-control" id="title" name="title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="audio_file">Fichier audio</label>
+                                    <input type="file" class="form-control-file" id="audio_file" name="audio_file" accept="audio/*" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cover_image">Image de couverture</label>
+                                    <input type="file" class="form-control-file" id="cover_image" name="cover_image" accept="image/*">
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Prix (€)</label>
+                                    <input type="number" class="form-control" id="price" name="price" min="0" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="genre">Genre</label>
+                                    <select class="form-control" id="genre" name="genre" required>
+                                        <option value="">Sélectionner un genre</option>
+                                        <option value="rap">Rap</option>
+                                        <option value="trap">Trap</option>
+                                        <option value="rnb">R&B</option>
+                                        <option value="pop">Pop</option>
+                                        <option value="drill">Drill</option>
+                                        <option value="other">Autre</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bpm">BPM</label>
+                                    <input type="number" class="form-control" id="bpm" name="bpm" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tags">Tags (séparés par des virgules)</label>
+                                    <input type="text" class="form-control" id="tags" name="tags" placeholder="ex: dark, melodic, 808">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="free_download" name="free_download">
+                                <label class="custom-control-label" for="free_download">Autoriser le téléchargement gratuit</label>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary">Uploader le beat</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

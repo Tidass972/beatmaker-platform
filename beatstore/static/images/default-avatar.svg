@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#1a1a1a"/>
+  <circle cx="100" cy="80" r="40" fill="#333"/>
+  <path d="M100 130c-30 0-60 15-60 45v25h120v-25c0-30-30-45-60-45z" fill="#333"/>
+  <text x="100" y="85" font-family="Arial" font-size="40" fill="#666" text-anchor="middle">
+    USER
+  </text>
+</svg>
